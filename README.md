@@ -126,6 +126,7 @@ A **Two-Stage Hybrid Ranking Pipeline** that runs fully offline on CPU:
 <p align="center">
   <img src="system_architecture.png" alt="System Architecture" width="900"/>
 </p>
+
 ---
 ## 🔍 Feature Breakdown
 
