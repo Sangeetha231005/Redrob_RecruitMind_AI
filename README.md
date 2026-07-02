@@ -30,7 +30,6 @@
 - [Output & Results](#-output--results)
 - [Technology Stack](#️-technology-stack)
 - [Project Structure](#-project-structure)
-- [Declarations](#-declarations)
 
 ---
 
@@ -122,6 +121,12 @@ A **Two-Stage Hybrid Ranking Pipeline** that runs fully offline on CPU:
 
 ---
 
+## 🏗️ System Architecture
+
+<p align="center">
+  <img src="system_architecture.png" alt="System Architecture" width="900"/>
+</p>
+---
 ## 🔍 Feature Breakdown
 
 ### 1. 🛡️ Honeypot Detection — Anti-Cheat Security Filter
@@ -417,15 +422,6 @@ Open your browser at: **http://localhost:8501**
 | **re (regex)** | stdlib | Stage 1 keyword pre-filter across candidate text |
 | **csv** | stdlib | Writing the official submission output file |
 
-### Deliberately NOT Used (and Why)
-
-| Technology | Reason Rejected |
-|:---|:---|
-| ❌ Sentence Transformers | Requires GPU — exceeds 5-min CPU time limit for 100K profiles |
-| ❌ OpenAI / Gemini API | Network calls disqualified by challenge rules |
-| ❌ Scikit-learn ML Models | No labeled training data — supervised learning not possible |
-| ❌ K-Means Clustering | Groups data into clusters — cannot compare candidates to a JD |
-| ❌ LLM Reasoning | Prone to hallucinations, slow, network-dependent |
 
 ---
 
@@ -455,21 +451,6 @@ Redrob_RecruitMind_AI/
 ├── requirements.txt           # Python dependencies (3 packages only)
 └── README.md                  # This file
 ```
-
----
-
-## 📜 Declarations
-
-| Declaration | Status |
-|:---|:---:|
-| Read submission specification in full | ✅ Yes |
-| Code is original team work | ✅ Yes |
-| AI tools used as assistants only (not for data access) | ✅ Yes |
-| No coordination with other teams | ✅ Yes |
-| Honeypot detection explicitly implemented | ✅ Yes |
-| Reproduce command tested end-to-end | ✅ Yes |
-| Zero network calls during ranking | ✅ Yes |
-| Runs on CPU only within time limits | ✅ Yes |
 
 ---
 
