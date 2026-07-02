@@ -2,17 +2,11 @@
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-Sangeetha231005-181717?style=for-the-badge&logo=github&logoColor=white)
-![Status](https://img.shields.io/badge/Validation-✅%20PASSED-brightgreen?style=for-the-badge)
 
 **India Runs Data & AI Challenge — Redrob AI Hackathon Submission**
 
 *An end-to-end AI-powered candidate ranking engine that processes 100,000 candidate profiles in under 80 seconds on standard CPU — with zero network dependency, zero hallucinations, and full explainability.*
 
-[🚀 View Live Submission](#-output--results) • [📊 How It Works](#-how-it-works) • [▶️ Run Locally](#️-installation--setup) • [🖥️ Web Dashboard](#️-recruiter-web-dashboard)
 
 </div>
 
