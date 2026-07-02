@@ -1,79 +1,96 @@
 # Redrob Hackathon — Submission Metadata
 #
-# Filled in metadata template mirroring the portal submission values.
+# Official submission form for the India Runs Data & AI Challenge
 
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "Antigravity-AI"  # Used in leaderboard and announcements
+team_name: "RecruitMind-AI"  # Used in leaderboard and announcements
 
 primary_contact:
-  name: "Participant Name"
-  email: "participant@example.com"   # Used for all organizer communication
-  phone: "+91-XXXXXXXXXX"        # Used for top-50 / top-10 outreach
+  name: "Sangeetha"                          # ← Fill your full name here
+  email: "your_email@example.com"            # ← Fill your real email here
+  phone: "+91-XXXXXXXXXX"                    # ← Fill your real phone here
 
 team_members:
-  - name: "Participant Name"
-    email: "participant@example.com"
-    role: "ML Engineer"          # Solo participant
+  - name: "Sangeetha"                        # ← Fill your full name here
+    email: "your_email@example.com"          # ← Fill your real email here
+    role: "ML Engineer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/YOUR_USERNAME/Redrob"
-# Required. Must be reachable. Private repos OK if you can grant organizer
-# access at Stage 3.
+github_repo: "https://github.com/Sangeetha231005/Redrob_RecruitMind_AI"
+# Judges will visit this link to review your code
 
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
-# Required. A working hosted environment where the ranker can be run on a small
-# candidate sample.
+sandbox_link: "https://github.com/Sangeetha231005/Redrob_RecruitMind_AI"
+# If you don't have a Hugging Face Space yet, use GitHub link as fallback
 
-reproduce_command: "python rank.py --candidates ./[PUB] India_runs_data_and_ai_challenge/[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/candidates.jsonl --out ./team_submission.csv"
-# The single command that produces submission.csv from candidates.jsonl.
-# Should run end-to-end within 5 minutes on CPU with 16GB RAM and no network.
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./team_submission.csv"
+# The single command judges run to reproduce your submission CSV.
+# Runs end-to-end in ~78 seconds on CPU with no network access.
 
 # ============================================================================
 # Compute environment
 # ============================================================================
 compute:
-  platform: "Local PC"                          # Description of where the code was executed
-  cpu_cores: 8                                  # Number of CPU cores used
-  ram_gb: 16                                    # Available RAM in GB
-  python_version: "3.10"                        # python --version
-  os: "Windows 11"                              # Operating system description
-  uses_gpu_for_inference: false                 # Must be false
-  has_network_during_ranking: false             # Must be false — no API calls during ranking
-  pre_computation_required: false               # true if you pre-compute embeddings or train models offline
-  pre_computation_time_minutes: 0               # Approximate, if applicable
+  platform: "Local PC (Windows 11)"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows 11"
+  uses_gpu_for_inference: false       # MUST be false — we use CPU only
+  has_network_during_ranking: false   # MUST be false — zero API calls during ranking
+  pre_computation_required: false     # No pre-training or embedding precompute needed
+  pre_computation_time_minutes: 0
 
 # ============================================================================
 # AI tools declaration
 # ============================================================================
 ai_tools_used:
-  - "Gemini"
-  - "Cursor"
+  - "Gemini (Google)"
 
 ai_usage_summary: |
-  Used Gemini for codebase exploration, honeypot analysis, and logic verification.
-  No candidate data was uploaded to external LLM APIs.
+  Used Gemini AI assistant for codebase exploration, honeypot analysis strategy,
+  and logic verification of the scoring pipeline.
+  No candidate profile data was uploaded to any external LLM APIs at any time.
+  All ranking logic runs fully offline on local CPU.
 
 # ============================================================================
-# Approach summary (optional but recommended)
+# Approach summary
 # ============================================================================
 methodology_summary: |
-  Rule-based ranker with explicit reasoning capture. Five scoring components
-  (skills, title+career, experience years, location, education) combined with
-  a multiplicative behavioral-signal modifier. The title component is the
-  decisive signal against keyword-stuffer traps; an endorsement-and-duration
-  trust multiplier on skills catches lazy keyword stuffing. Runtime is ~78
-  seconds for 100K candidates on CPU.
+  Two-stage hybrid rule-based ranker with full explainability.
+
+  Stage 1 — Security Filter:
+    Detects and blocks 65 honeypot profiles using three checks:
+    (1) Expert/Advanced skill with duration_months = 0
+    (2) Job duration > calendar months elapsed + 12
+    (3) Claimed YoE vs actual career history mismatch
+
+  Stage 2 — Multi-Factor Scoring:
+    Five scoring dimensions combined linearly:
+    - Skills Match       (40%): Embeddings, Vector DBs, Python, Eval Metrics
+    - Experience Match   (20%): Target band 5-9 years, penalizes pure academics
+    - Company Type       (15%): Boosts product startups, penalizes consulting-only
+    - Location Match     (15%): Noida/Pune preferred, Tier-1 cities acceptable
+    - Notice Period      (10%): Sub-30 days preferred
+
+  Behavioral Modifier (Multiplicative):
+    Final score multiplied by platform engagement signals:
+    login recency, recruiter response rate, interview attendance, open-to-work flag.
+
+  Reasoning Generator:
+    Template-based, zero-hallucination explanations using only real profile data.
+
+  Runtime: ~78 seconds for 100,000 candidates on standard CPU.
 
 # ============================================================================
 # Declarations
 # ============================================================================
 declarations:
-  read_submission_spec: true        # I have read submission_spec.md in full
-  code_is_original_work: true       # My code is my team's original work (using AI as a tool is fine)
-  no_collusion: true                # I have not coordinated my submission with other teams
-  honeypot_check_done: true         # Set true as we explicitly checked for honeypots
-  reproduction_tested: true         # I have tested that my reproduce_command runs end-to-end
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
